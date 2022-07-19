@@ -17,12 +17,10 @@ const Details = () => {
         .catch(err=>console.log(err))
     },[])
 
-    const deleteProduct = (productid) => {
-        axios.delete(`http://localhost:8000/api/products/${productid}`)
-            .then(res => {
-                // removeFromProduct(productid)
-                navigate("/")
-            })
+    const deleteProduct = () => {
+        // can get id from params for the link rather than sending something to the function at the button.
+        axios.delete(`http://localhost:8000/api/products/${id}`)
+            .then(res => {navigate("/")})
             .catch(err => console.error(err));
     }
 
@@ -34,7 +32,7 @@ const Details = () => {
                     <h2>{product.title}</h2>
                     <p>Price: {product.price}</p>
                     <p>Description: {product.description}</p>
-                    <button onClick={(e) => {deleteProduct(product._id)}}>Delete</button>
+                    <button onClick={deleteProduct}>Delete</button>
                     <Link to={`/`}>Return to Main Page</Link> 
                 </div>:
                 <h1>The product is unavailable at this time.</h1>

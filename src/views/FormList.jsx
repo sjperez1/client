@@ -16,8 +16,13 @@ const FormList = () => {
             .catch(err=>console.log(err))
     },[])
 
-    const removeFromProduct = productid => {
-        setProductlist(productlist.filter(product => product._id !== productid));
+    const removeFromProduct = (productid) => {
+        const filteredList = productlist.filter((product, i) => {
+            return(
+                product._id !== productid
+            )
+        })
+        setProductlist(filteredList)
     }
 
     return (
