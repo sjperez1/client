@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
-
+// notes from lecture:
 // 1. input: useState
 // 2. axios
 // optional: redirect: useNavigate
@@ -9,7 +9,6 @@ const ProductForm = (props) => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-
 
     const handleSubmit =(e) =>{
         e.preventDefault()
